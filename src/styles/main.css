@@ -1,0 +1,28 @@
+body{
+    background:#f5f7fb;
+    font-family:Segoe UI, sans-serif;
+}
+
+.section-title{
+    font-weight:700;
+    color:#0d47a1;
+}
+
+.card{
+    border:none;
+    border-radius:14px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.btn-primary{
+    border-radius:10px;
+}
+
+.navbar{
+    background:linear-gradient(90deg,#0d47a1,#1565c0);
+}
