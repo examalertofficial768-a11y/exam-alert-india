@@ -1,66 +1,65 @@
+import useJobs from "../hooks/useJobs";
+
 function LatestJobs() {
-  const jobs = [
-    {
-      title: "SSC CGL 2026 Recruitment",
-      org: "SSC",
-      lastDate: "25 Aug 2026",
-      status: "Apply Online",
-    },
-    {
-      title: "Railway Group D Recruitment",
-      org: "Indian Railway",
-      lastDate: "30 Aug 2026",
-      status: "Apply Online",
-    },
-    {
-      title: "Rajasthan Police Constable",
-      org: "Rajasthan Police",
-      lastDate: "15 Sep 2026",
-      status: "Coming Soon",
-    },
-  ];
+
+  const { jobs, loading } = useJobs();
+
+  if (loading) {
+    return (
+      <div className="card shadow border-0">
+        <div className="card-body">
+          <h4>Loading Jobs...</h4>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="card shadow border-0 h-100">
+    <div className="card shadow border-0">
 
-      <div className="card-header bg-primary text-white fw-bold">
+      <div className="card-header bg-primary text-white">
         🔥 Latest Jobs
       </div>
 
       <div className="card-body">
 
-        {jobs.map((job, index) => (
+        {jobs.length === 0 ? (
+          <h5>No Jobs Found</h5>
+        ) : (
 
-          <div
-            key={index}
-            className="border rounded p-3 mb-3 text-center"
-          >
+          jobs.map((job) => (
 
-            <h4>{job.title}</h4>
+            <div
+              key={job._id}
+              className="border rounded p-3 mb-3"
+            >
 
-            <p className="mb-1">
-              <strong>Organization:</strong> {job.org}
-            </p>
+              <h4>{job.title}</h4>
 
-            <p className="mb-3">
-              <strong>Last Date:</strong> {job.lastDate}
-            </p>
+              <p>
+                <strong>Organization :</strong>{" "}
+                {job.organization}
+              </p>
 
-            <div className="d-flex justify-content-center gap-2">
+              <p>
+                <strong>Last Date :</strong>{" "}
+                {job.lastDate}
+              </p>
 
-              <button className="btn btn-primary btn-sm">
-                {job.status}
-              </button>
-
-              <button className="btn btn-outline-dark btn-sm">
-                View Details
-              </button>
+              <a
+                href={job.applyLink}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary btn-sm"
+              >
+                Apply Now
+              </a>
 
             </div>
 
-          </div>
+          ))
 
-        ))}
+        )}
 
       </div>
 
