@@ -1,0 +1,11 @@
+POST http://localhost:5000/api/jobs
+Content-Type: application/json
+
+{
+    "title":"SSC CGL 2026",
+    "organization":"Staff Selection Commission",
+    "lastDate":"25 August 2026",
+    "applyLink":"https://ssc.gov.in",
+    "category":"SSC",
+    "description":"SSC CGL 2026 Recruitment"
+} 

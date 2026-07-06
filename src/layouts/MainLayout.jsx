@@ -1,12 +1,15 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function MainLayout({ children }) {
   return (
     <>
       <Navbar />
-      <div className="container mt-4">
+<main className="container-fluid px-lg-5 mt-4">
         {children}
-      </div>
+      </main>
+
+      <Footer />
     </>
   );
 }
